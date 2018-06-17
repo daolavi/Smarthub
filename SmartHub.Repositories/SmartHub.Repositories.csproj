@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{591A839F-4E25-4F0B-B56A-0315353A09FA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SmartHub.Repositories</RootNamespace>
+    <AssemblyName>SmartHub.Repositories</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\ChannelAmazon.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ChannelAmazonConfiguration.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ChannelEbay.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ChannelEbayConfiguration.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ChannelEmail.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ChannelEmailConfiguration.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ChannelMagento.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ChannelMagentoConfiguration.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Connection.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ConnectionConfiguration.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\MessageEbay.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\MessageEbayConfiguration.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\MessageEbayMagento.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\MessageEbayMagentoConfiguration.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\MessageEmail.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\MessageEmailConfiguration.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\MessageEmailMagento.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\MessageEmailMagentoConfiguration.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\MessageMagento.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\MessageMagentoConfiguration.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TicketEbay.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TicketEbayConfiguration.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TicketEbayMagento.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TicketEbayMagentoConfiguration.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TicketEmail.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TicketEmailConfiguration.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TicketEmailMagento.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TicketEmailMagentoConfiguration.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TicketMagento.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TicketMagentoConfiguration.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\User.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\UserChannel.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\UserChannelConfiguration.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\UserConfiguration.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IUnitOfWork.cs" />
+    <Compile Include="Entities\Models.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\ChannelEbayRepository.cs" />
+    <Compile Include="Repositories\ChannelEmailRepository.cs" />
+    <Compile Include="Repositories\ChannelMagentoRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IChannelEmailRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IChannelMagentoRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IConnectionRepository.cs" />
+    <Compile Include="Repositories\ConnectionRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IChannelEbayRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IMessageEbayMagentoRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IMessageEbayRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IMessageEmailMagentoRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IMessageEmailRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IMessageMagentoRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ITicketEbayMagentoRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ITicketEbayRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ITicketEmailMagentoRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ITicketEmailRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ITicketMagentoRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IUserChannelRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IUserRepository.cs" />
+    <Compile Include="Repositories\MessageEbayMagentoRepository.cs" />
+    <Compile Include="Repositories\MessageEbayRepository.cs" />
+    <Compile Include="Repositories\MessageEmailMagentoRepository.cs" />
+    <Compile Include="Repositories\MessageEmailRepository.cs" />
+    <Compile Include="Repositories\MessageMagentoRepository.cs" />
+    <Compile Include="Repositories\TicketEbayMagentoRepository.cs" />
+    <Compile Include="Repositories\TicketEbayRepository.cs" />
+    <Compile Include="Repositories\TicketEmailMagentoRepository.cs" />
+    <Compile Include="Repositories\TicketEmailRepository.cs" />
+    <Compile Include="Repositories\TicketMagentoRepository.cs" />
+    <Compile Include="Repositories\UserChannelRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Repository.cs" />
+    <Compile Include="IRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SmartHubDbContext.cs" />
+    <Compile Include="UnitOfWork.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Entities\EF.Reverse.POCO.Core.ttinclude" />
+    <None Include="Entities\EF.Reverse.POCO.ttinclude" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SmartHub.IoC\SmartHub.IoC.csproj">
+      <Project>{82f379eb-69ea-412c-82ed-9962d1107881}</Project>
+      <Name>SmartHub.IoC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmartHub.Shared\SmartHub.Shared.csproj">
+      <Project>{1133b310-7240-47e6-97e9-72041e0594cf}</Project>
+      <Name>SmartHub.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Entities\Models.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Models.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

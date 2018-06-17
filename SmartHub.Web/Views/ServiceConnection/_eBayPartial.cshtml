@@ -1,0 +1,60 @@
+﻿@model SmartHub.Web.Models.ChannelEbayViewModel
+
+@{
+    string actionName;
+    if (!Model.IsConnected)
+    {
+        actionName = "EBayLogin";
+    }
+    else
+    {
+        actionName = "EBayDisconnect";
+    }
+}
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <fieldset class="form-group">
+            <legend>eBay</legend>
+            @using (Html.BeginForm(actionName: actionName, controllerName: "ServiceConnection", method: FormMethod.Post, htmlAttributes: new { @class = "form-horizontal" }))
+            {
+                @Html.HiddenFor(model => Model.Id)
+                <div class="form-group">
+                    <label class="control-label col-sm-4" for="ebay-token-status">Token status</label>
+                    <div class="col-sm-8">
+                        @if (Model.IsConnected)
+                        {
+                            <h4><span class="label label-success" id="ebay-token-status-connected">Connected</span></h4>
+                        }
+                        else
+                        {
+                            <h4><span class="label label-danger" id="ebay-token-status-disconnected">Disconnected</span></h4>
+                        }
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4" for="ebay-token-expdate">Expiration date</label>
+                    <div class="col-sm-8">
+                        @Html.TextBoxFor(model => Model.ExpiredDate, new { @class = "form-control" , @readonly = "readonly" })
+                    </div>
+                </div>
+                if (Model.IsConnected)
+                {
+                    <div class="form-group">
+                        <div class="col-sm-offset-4 col-sm-8">
+                            <button type="submit" class="btn btn-default">Disconnect</button>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="form-group">
+                        <div class="col-sm-offset-4 col-sm-8">
+                            <button type="submit" class="btn btn-default">Login to eBay</button>
+                        </div>
+                    </div>
+                }
+            }
+       </fieldset>
+    </div>
+</div>

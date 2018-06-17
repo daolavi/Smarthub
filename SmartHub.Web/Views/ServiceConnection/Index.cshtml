@@ -1,0 +1,27 @@
+﻿@model SmartHub.Web.Models.ServiceConnectionViewModel
+@using SmartHub.Web.Models;
+
+@{
+    ViewBag.Title = "Index";
+    if (Model.channelEbay == null)
+    {
+        Model.channelEbay = new ChannelEbayViewModel();
+    }
+    if (Model.channelMagento == null)
+    {
+        Model.channelMagento = new ChannelMagentoViewModel();
+    }
+    if (Model.channelEmail == null)
+    {
+        Model.channelEmail = new ChannelEmailViewModel();
+    }
+}
+
+<h2>Index</h2>
+<div class="container">
+    @{ 
+        Html.RenderPartial("_MagentoPartial", Model.channelMagento);
+        Html.RenderPartial("_EbayPartial", Model.channelEbay);
+        Html.RenderPartial("_GmailPartial", Model.channelEmail);
+    }
+</div>

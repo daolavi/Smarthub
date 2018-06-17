@@ -1,0 +1,93 @@
+﻿@using System.ServiceModel.Description
+@model SmartHub.Web.Models.ChannelMagentoViewModel
+
+@{
+    string actionName;
+    if (!Model.IsConnected)
+    {
+        actionName = "MagentoConnect";
+    }
+    else
+    {
+        actionName = "MagentoDisconnect";
+    }
+
+    if (string.IsNullOrEmpty(Model.TimeZoneDisplayName))
+    {
+        Model.TimeZoneDisplayName = TimeZoneInfo.Local.DisplayName;
+    }
+
+    var timeZones = TimeZoneInfo.GetSystemTimeZones().Select(x => new SelectListItem
+    {
+        Text = x.DisplayName,
+        Value = x.DisplayName,
+        Selected = Model != null && x.DisplayName == Model.TimeZoneDisplayName
+    });
+}
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <fieldset class="form-group">
+            <legend>Magento</legend>
+            @using (Html.BeginForm(actionName: actionName, controllerName: "ServiceConnection", method: FormMethod.Post, htmlAttributes: new { @class = "form-horizontal" }))
+            {
+                @Html.HiddenFor(model => Model.Id)
+                <div class="form-group">
+                    <label class="control-label col-sm-4">Username</label>
+                    <div class="col-sm-8">
+                        @Html.TextBoxFor(model => Model.Username, new { @class = "form-control", @placeholder = "Enter username" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">Password</label>
+                    <div class="col-sm-8">
+                        @Html.TextBoxFor(model => Model.Password, new { @class = "form-control", @placeholder = "Enter password", @type = "password" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">Host</label>
+                    <div class="col-sm-8">
+                        @Html.TextBoxFor(model => Model.Host, new { @class = "form-control", @placeholder = "Enter host" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">Store Id</label>
+                    <div class="col-sm-8">
+                        @Html.TextBoxFor(model => Model.StoreId, new {@class = "form-control", @placeholder = "Enter store Id"})
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">Time Zone</label>
+                    <div class="col-sm-8">
+                        @Html.DropDownListFor(model => Model.TimeZoneDisplayName, timeZones, new { @class = "form-control"})
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">Status</label>
+                    <div class="col-sm-8">
+                        @if (Model.IsConnected)
+                        {
+                            <h4><span class="label label-success" id="gmail-status-connected">Connected</span></h4>
+                        }
+                        else
+                        {
+                            <h4><span class="label label-danger" id="gmail-status-disconnected">Disconnected</span></h4>
+                        }
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-4 col-sm-8">
+                        @if (Model.IsConnected)
+                        {
+                            <button type="submit" class="btn btn-default">Disconnect</button>
+                        }
+                        else
+                        {
+                            <button type="submit" class="btn btn-default">Connect</button>
+                        }
+                    </div>
+                </div>
+            }
+        </fieldset>
+    </div>
+</div>
